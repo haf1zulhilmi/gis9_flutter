@@ -3,7 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class MainMenuScreen extends StatefulWidget {
-  const MainMenuScreen({super.key});
+  final bool isPublic;
+  const MainMenuScreen({
+    super.key,
+    required this.isPublic,
+  });
 
   @override
   State<MainMenuScreen> createState() => _MainMenuScreenState();
@@ -63,7 +67,9 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
           );
         },
       )
-      ..loadRequest(Uri.parse('https://gis9.ns.gov.my/gis/'));
+      ..loadRequest(Uri.parse(widget.isPublic
+          ? 'https://gis9.ns.gov.my/gis/'
+          : 'https://gis9.ns.gov.my/gis/login'));
 
     _controller = controller;
   }

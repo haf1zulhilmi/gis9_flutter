@@ -106,7 +106,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MainMenuScreen()));
+                                builder: (context) => const MainMenuScreen(
+                                      isPublic: true,
+                                    )));
                       },
                       child: const Text(
                         'Get Started',

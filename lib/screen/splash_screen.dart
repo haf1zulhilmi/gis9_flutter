@@ -1,9 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:gis9_flutter/constant/color.dart';
-import 'package:gis9_flutter/screen/main_menu_screen.dart';
-import 'package:gis9_flutter/screen/welcome_screen.dart';
+import 'package:gis9_flutter/screen/welcome_page.dart';
 import 'package:gis9_flutter/util/preference.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,18 +16,23 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool showOnboard = Preference.getBool(Preference.showOnboard)!;
-  String? version;
-  String? backendVersion;
-
-  redirectPage(int duration) {
+  void redirectPage(int duration) {
     Timer(Duration(seconds: duration), () {
-      showOnboard
-          ? Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const WelcomeScreen()))
-          : Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const MainMenuScreen()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const WelcomePage()));
     });
+  }
+
+  void checkInternetConnection() async {
+    try {
+      final result = await InternetAddress.lookup('www.google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        onLoading();
+        print('connected');
+      }
+    } on SocketException catch (_) {
+      print('not connected');
+    }
   }
 
   onLoading() async {
@@ -37,18 +42,19 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    onLoading();
+    checkInternetConnection();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Put image here
-            Padding(
+            Image.asset('assets/gis9_icon.jpeg'),
+            const Padding(
               padding: EdgeInsets.all(30.0),
               child: LinearProgressIndicator(
                 color: primaryColor,
