@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Put image here
-            Image.asset('assets/gis9_icon.jpeg'),
+            Image.asset('assets/gis9_icon.png'),
             const Padding(
               padding: EdgeInsets.all(30.0),
               child: LinearProgressIndicator(

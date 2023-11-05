@@ -13,11 +13,11 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: [Colors.red, Colors.blue],
-              begin: const FractionalOffset(0.0, 0.0),
-              end: const FractionalOffset(0.5, 0.0),
+              colors: [Colors.red, Colors.orange],
+              begin: FractionalOffset(0.0, 0.0),
+              end: FractionalOffset(0.5, 0.0),
               stops: [0.0, 1.0],
               tileMode: TileMode.clamp),
         ),
@@ -27,26 +27,29 @@ class _WelcomePageState extends State<WelcomePage> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50),
+                padding: const EdgeInsets.symmetric(vertical: 40),
                 child: Image.asset(
-                  'assets/gis9_icon.jpeg',
-                  height: 250,
+                  'assets/gis9_icon.png',
+                  height: 175,
                   fit: BoxFit.fill,
                 ),
               ),
               const Text(
                 'Selamat datang',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 45),
               ),
-              const Text(
-                'Waghih Nogori Maju Bersama GIS9',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 40),
+                child: Text(
+                  'Waghih Nogori Maju Bersama GIS9',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 30,
+                  ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Row(
@@ -64,11 +67,11 @@ class _WelcomePageState extends State<WelcomePage> {
                     child: Container(
                       width: 100,
                       decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Center(
+                          color: Colors.yellow,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: const Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: EdgeInsets.all(16.0),
                           child: Text('Pengguna'),
                         ),
                       ),
@@ -86,8 +89,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     child: Container(
                       width: 100,
                       decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(10)),
+                          color: Colors.yellow,
+                          borderRadius: BorderRadius.circular(20)),
                       child: const Center(
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
