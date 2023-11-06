@@ -68,8 +68,8 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
         },
       )
       ..loadRequest(Uri.parse(widget.isPublic
-          ? 'https://gis9.ns.gov.my/gis/'
-          : 'https://gis9.ns.gov.my/gis/login'));
+          ? 'https://gis9map.ns.gov.my/mapv3.jsp'
+          : 'https://gis9map.ns.gov.my/login.jsp'));
 
     _controller = controller;
   }

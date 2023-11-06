@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:gis9_flutter/constant/color.dart';
 import 'package:gis9_flutter/screen/welcome_page.dart';
-import 'package:gis9_flutter/util/preference.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({
@@ -49,19 +47,22 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Put image here
-            Image.asset('assets/gis9_icon.png'),
-            const Padding(
-              padding: EdgeInsets.all(30.0),
-              child: LinearProgressIndicator(
-                color: primaryColor,
-                backgroundColor: whiteColor,
-              ),
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Put image here
+              Image.asset('assets/gis9_icon.png'),
+              const Padding(
+                padding: EdgeInsets.all(30.0),
+                child: LinearProgressIndicator(
+                  color: primaryColor,
+                  backgroundColor: whiteColor,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

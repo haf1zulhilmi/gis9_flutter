@@ -22,7 +22,7 @@ class _WelcomePageState extends State<WelcomePage> {
               tileMode: TileMode.clamp),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -30,22 +30,22 @@ class _WelcomePageState extends State<WelcomePage> {
                 padding: const EdgeInsets.symmetric(vertical: 40),
                 child: Image.asset(
                   'assets/gis9_icon.png',
-                  height: 175,
+                  height: 250,
                   fit: BoxFit.fill,
                 ),
               ),
               const Text(
                 'Selamat datang',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 45),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(vertical: 40),
+                padding: EdgeInsets.symmetric(vertical: 30),
                 child: Text(
-                  'Waghih Nogori Maju Bersama GIS9',
+                  'Aplikasi Mobil GIS9',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35,
                   ),
                 ),
               ),
@@ -67,8 +67,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     child: Container(
                       width: 100,
                       decoration: BoxDecoration(
-                          color: Colors.yellow,
-                          borderRadius: BorderRadius.circular(20)),
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(10)),
                       child: const Center(
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
@@ -89,8 +89,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     child: Container(
                       width: 100,
                       decoration: BoxDecoration(
-                          color: Colors.yellow,
-                          borderRadius: BorderRadius.circular(20)),
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(10)),
                       child: const Center(
                         child: Padding(
                           padding: EdgeInsets.all(16.0),
