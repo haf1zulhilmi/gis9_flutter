@@ -68,8 +68,8 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
         },
       )
       ..loadRequest(Uri.parse(widget.isPublic
-          ? 'https://gis9map.ns.gov.my/mapv3.jsp'
-          : 'https://gis9map.ns.gov.my/login.jsp'));
+          ? 'https://gis9.ns.gov.my/arcgisportal/apps/webappviewer/index.html?id=2725c1084ddd47b98257e55086a4ffbe'
+          : 'http://202.187.49.63:8080/gis9/users/logmasuk?url=Crowd%20Sourcing'));
 
     _controller = controller;
   }
@@ -111,7 +111,7 @@ class NavigationControls extends StatelessWidget {
             } else {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('No back history item')),
+                  const SnackBar(content: Text('No back history')),
                 );
               }
             }
@@ -129,15 +129,7 @@ class NavigationControls extends StatelessWidget {
             } else {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: const Text(
-                      'No forward history item',
-                    ),
-                    margin: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).size.height - 100,
-                        right: 20,
-                        left: 20),
-                  ),
+                  const SnackBar(content: Text('No forward history')),
                 );
               }
             }
