@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MainMenuScreen extends StatefulWidget {
   final bool isPublic;
@@ -16,10 +17,12 @@ class MainMenuScreen extends StatefulWidget {
 class _MainMenuScreenState extends State<MainMenuScreen> {
   late final WebViewController _controller;
   bool isLoading = true;
+  Position? _currentPosition;
 
   @override
   void initState() {
     super.initState();
+    _getLocation();
 
     // #docregion platform_features
     late final PlatformWebViewControllerCreationParams params;
@@ -72,6 +75,32 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
           : 'http://202.187.49.63:8080/gis9/users/logmasuk?url=Crowd%20Sourcing'));
 
     _controller = controller;
+  }
+
+  _getLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      // Handle if location services are not enabled
+      return;
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        // Handle if the user denies permission
+        return;
+      }
+    }
+
+    // Get the current location
+    Position position = await Geolocator.getCurrentPosition();
+    setState(() {
+      _currentPosition = position;
+    });
   }
 
   @override
